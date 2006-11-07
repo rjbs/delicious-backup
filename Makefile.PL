@@ -5,6 +5,7 @@ WriteMakefile(
 	AUTHOR        => 'Ricardo SIGNES <rjbs@cpan.org>',
 	VERSION_FROM  => 'bin/delbackup',
 	EXE_FILES     => [ 'bin/delbackup' ],
+  LICENSE       => 'perl',
 	PREREQ_PM => {
 		'Config::Auto'   => 0.11,
 		'Net::Delicious' => 0.90,
