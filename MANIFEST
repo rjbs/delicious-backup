@@ -9,3 +9,4 @@ META.yml
 t/pod-coverage.t
 t/pod.t
 t/perl-critic.t
+LICENSE
