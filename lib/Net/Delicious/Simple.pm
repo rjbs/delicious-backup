@@ -12,13 +12,13 @@ Net::Delicious::Simple - Net::Delicious for backups
 
 =head1 VERSION
 
-version 0.01
+version 0.011
 
- $Id
+ $Id$
 
 =cut
 
-$Net::Delicious::Simple::VERSION = '0.01';
+$Net::Delicious::Simple::VERSION = '0.011';
 
 =head1 SYNOPSIS
 
@@ -46,8 +46,14 @@ credentials.
 =cut
 
 sub new {
-	my ($class, @config) = @_;
-	return unless my $del = Net::Delicious->new(@config);
+	my ($class, $config) = @_;
+
+	return unless my $del = Net::Delicious->new($config);
+
+  require File::Temp;
+  my $tempdir = File::Temp::tempdir(CLEANUP => 1 );
+  $del->{__updates} = $del->{__updated} = $tempdir;
+
 	bless { del => $del } => $class;
 }
 
@@ -69,13 +75,17 @@ Tags is an arrayref, and datetime is in seconds-sicne-epoch, GMT.
 =cut
 
 sub all_posts {
+  my ($self) = @_;
+
+  my @all_posts = $self->{del}->all_posts;
+
 	my @posts = map {{
 		description => $_->description,
 		extended    => $_->extended,
 		href        => $_->href,
 		tags        => [ split /\s+/, $_->tags ],
 		datetime    => str2time($_->time)
-	}} (shift)->{del}->all_posts;
+	}} @all_posts;
 }
 
 =head1 SEE ALSO
