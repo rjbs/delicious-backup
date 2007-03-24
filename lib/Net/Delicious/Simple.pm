@@ -22,10 +22,10 @@ $Net::Delicious::Simple::VERSION = '0.01';
 
 =head1 SYNOPSIS
 
- use Net::Delicious::Simple;
- my $del = Net::Delicious->new(user => 'plki', pswd => 'secret');
- 
- print "$_->{href}\n" for $del->all_posts;
+  use Net::Delicious::Simple;
+  my $del = Net::Delicious->new(user => 'plki', pswd => 'secret');
+
+  print "$_->{href}\n" for $del->all_posts;
 
 =head1 DESCRIPTION
 
