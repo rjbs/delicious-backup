@@ -7,9 +7,9 @@ WriteMakefile(
 	EXE_FILES     => [ 'bin/delbackup' ],
   (eval { ExtUtils::MakeMaker->VERSION(6.21) } ? (LICENSE => 'perl') : ()),
 	PREREQ_PM => {
-		'Config::Auto'   => 0.11,
-		'Net::Delicious' => 0.90,
-		'YAML'           => 0,
+		'Config::Auto'        => 0.11,
+		'Net::Delicious'      => 1.11, # 1.10 has a bug in using "updates"
+		'YAML'                => 0,
 		'Netscape::Bookmarks' => 0,
 	},
 );

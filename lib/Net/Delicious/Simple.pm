@@ -12,13 +12,13 @@ Net::Delicious::Simple - Net::Delicious for backups
 
 =head1 VERSION
 
-version 0.011
+version 0.012
 
  $Id$
 
 =cut
 
-$Net::Delicious::Simple::VERSION = '0.011';
+$Net::Delicious::Simple::VERSION = '0.012';
 
 =head1 SYNOPSIS
 
@@ -48,11 +48,10 @@ credentials.
 sub new {
 	my ($class, $config) = @_;
 
-	return unless my $del = Net::Delicious->new($config);
-
-  require File::Temp;
-  my $tempdir = File::Temp::tempdir(CLEANUP => 1 );
-  $del->{__updates} = $del->{__updated} = $tempdir;
+	return unless my $del = Net::Delicious->new({
+    %$config,
+    updates => File::Temp::tempdir(CLEANUP => 1),
+  });
 
 	bless { del => $del } => $class;
 }
