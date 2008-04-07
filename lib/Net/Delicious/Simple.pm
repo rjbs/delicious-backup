@@ -1,7 +1,7 @@
 package Net::Delicious::Simple;
-
 use strict;
 use warnings;
+
 use Config::Auto;
 use Date::Parse;
 use Net::Delicious;
@@ -12,13 +12,11 @@ Net::Delicious::Simple - Net::Delicious for backups
 
 =head1 VERSION
 
-version 0.012
-
- $Id$
+version 0.013
 
 =cut
 
-$Net::Delicious::Simple::VERSION = '0.012';
+our $VERSION = '0.013';
 
 =head1 SYNOPSIS
 

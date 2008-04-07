@@ -2,6 +2,7 @@ use ExtUtils::MakeMaker;
 
 WriteMakefile(
 	NAME          => 'delicious-backup',
+  ABSTRACT      => 'simple del.icio.us backup tool',
 	AUTHOR        => 'Ricardo SIGNES <rjbs@cpan.org>',
 	VERSION_FROM  => 'bin/delbackup',
 	EXE_FILES     => [ 'bin/delbackup' ],
